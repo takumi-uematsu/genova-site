@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" width="240" height="220">
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Syne:ital,wght@1,600;1,700&amp;display=swap');
+      .logotype { font-family: 'Syne', sans-serif; font-weight: 700; font-style: italic; font-size: 46px; letter-spacing: 0.01em; fill: #1B3A7A; text-anchor: middle; }
+    </style>
+    <linearGradient id="zbar-v-c" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#FF8AB4"/><stop offset="50%" stop-color="#1B3A7A"/><stop offset="100%" stop-color="#4A7BC7"/></linearGradient>
+  </defs>
+  <g transform="translate(78,20)">
+    <rect x="0" y="48" width="8" height="17" rx="1" fill="url(#zbar-v-c)"/>
+    <rect x="11" y="38" width="8" height="27" rx="1" fill="url(#zbar-v-c)"/>
+    <rect x="22" y="28" width="8" height="37" rx="1" fill="url(#zbar-v-c)"/>
+    <rect x="33" y="18" width="8" height="47" rx="1" fill="url(#zbar-v-c)"/>
+    <rect x="44" y="30" width="8" height="35" rx="1" fill="url(#zbar-v-c)"/>
+    <rect x="55" y="42" width="8" height="23" rx="1" fill="url(#zbar-v-c)"/>
+    <rect x="66" y="35" width="8" height="30" rx="1" fill="url(#zbar-v-c)"/>
+    <rect x="77" y="50" width="7" height="15" rx="1" fill="url(#zbar-v-c)"/>
+  </g>
+  <text x="120" y="170" class="logotype">Z-Data</text>
+</svg>

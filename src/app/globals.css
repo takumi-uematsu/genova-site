@@ -1,0 +1,634 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  background-color: #fafaf7;
+  color: #1a1a1a;
+}
+
+/* Use the system focus ring style consistently */
+:focus-visible {
+  outline: 2px solid #4a7bc7;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Lighter animation load on small screens — phone GPU / battery friendly. */
+@media (max-width: 640px) {
+  /* Hide the heaviest decorative animation elements on small screens. */
+  .decor-mobile-hide {
+    display: none !important;
+  }
+  /* Half-density: hide every other decorative dot for performance. */
+  .decor-mobile-half:nth-child(even) {
+    display: none !important;
+  }
+}
+
+/* Selection */
+::selection {
+  background: rgba(74, 123, 199, 0.18);
+  color: #1a1a1a;
+}
+
+/* Anchor offset for sticky header */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Form auto-fill harmonization */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset;
+  -webkit-text-fill-color: #1a1a1a;
+}
+
+/* Hero "nova birth" particle animation.
+   Each particle expands, holds bright, then fades like a small stellar event. */
+@keyframes hero-nova {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  40% {
+    opacity: 0.95;
+    transform: scale(1.4);
+  }
+  70% {
+    opacity: 0.55;
+    transform: scale(1.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+/* Large, rare "supernova" flash — a bigger, brighter event. */
+@keyframes hero-supernova {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  8% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 0.85;
+    transform: scale(2);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(3.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(4.5);
+  }
+}
+
+/* Slow vertical drift overlay so the field feels alive, not stuck. */
+@keyframes hero-drift {
+  0%,
+  100% {
+    margin-top: -3px;
+  }
+  50% {
+    margin-top: 3px;
+  }
+}
+
+/* Constellation lines — connections that pulse in & out. */
+@keyframes hero-line {
+  0%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 200;
+  }
+  20% {
+    opacity: 0.55;
+    stroke-dashoffset: 0;
+  }
+  60% {
+    opacity: 0.55;
+    stroke-dashoffset: 0;
+  }
+  80% {
+    opacity: 0;
+    stroke-dashoffset: -200;
+  }
+}
+
+/* Mission decorative symbol — slow rotation + breath */
+@keyframes mission-symbol {
+  0%,
+  100% {
+    opacity: 0.06;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    opacity: 0.1;
+    transform: rotate(8deg) scale(1.06);
+  }
+}
+.animate-mission-symbol {
+  animation: mission-symbol 18s ease-in-out infinite;
+  transform-origin: 60% 40%;
+}
+
+/* Mission headline glow — soft yellow text-shadow pulse */
+@keyframes mission-glow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 0px rgba(255, 216, 158, 0),
+      0 0 0px rgba(255, 216, 158, 0);
+  }
+  50% {
+    text-shadow:
+      0 0 16px rgba(255, 216, 158, 0.45),
+      0 0 32px rgba(255, 216, 158, 0.25);
+  }
+}
+.animate-mission-glow {
+  animation: mission-glow 5.5s ease-in-out infinite;
+}
+
+/* =====================================================
+ * Z-Data (Products section) — city-pop "妖艶な揺らめき"
+ * ===================================================== */
+
+/* Slow gradient drift across the NITEFLYTE backdrop, like
+   distant heat-haze on the city. */
+@keyframes zdata-sunset-drift {
+  0%,
+  100% {
+    transform: translate3d(-3%, 0, 0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(3%, 0, 0);
+    opacity: 1;
+  }
+}
+
+/* Two soft bokeh blobs drifting in opposing directions. */
+@keyframes zdata-blob-a {
+  0%,
+  100% {
+    transform: translate3d(-6%, 2%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(8%, -3%, 0) scale(1.12);
+  }
+}
+@keyframes zdata-blob-b {
+  0%,
+  100% {
+    transform: translate3d(6%, -2%, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-8%, 4%, 0) scale(0.95);
+  }
+}
+@keyframes zdata-blob-c {
+  0%,
+  100% {
+    transform: translate3d(0, -4%, 0) scale(0.98);
+  }
+  50% {
+    transform: translate3d(4%, 4%, 0) scale(1.1);
+  }
+}
+
+/* Z-Data logo gentle sway — like the logo is floating on water. */
+@keyframes zdata-sway {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.4deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0.4deg);
+  }
+}
+.animate-zdata-sway {
+  animation: zdata-sway 6.5s ease-in-out infinite;
+}
+
+/* Catchphrase shimmer — gradient slowly drifts across the text. */
+@keyframes zdata-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.animate-zdata-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 216, 158, 0.7) 0%,
+    rgba(255, 138, 180, 1) 25%,
+    rgba(255, 216, 158, 1) 50%,
+    rgba(255, 138, 180, 1) 75%,
+    rgba(255, 216, 158, 0.7) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: zdata-shimmer 6s linear infinite;
+}
+
+/* Window-light flicker for city silhouette. */
+@keyframes zdata-window-blink {
+  0%,
+  18%,
+  22%,
+  100% {
+    opacity: 0.55;
+  }
+  20% {
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 0.25;
+  }
+  62% {
+    opacity: 0.85;
+  }
+}
+
+/* Section "neon halo" — pink bloom that breathes at the top. */
+@keyframes zdata-neon {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+.animate-zdata-neon {
+  animation: zdata-neon 7s ease-in-out infinite;
+}
+
+/* Star points twinkle */
+@keyframes zdata-star {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+/* Z-Bar soundwave — concentric rings emanating from the logo,
+   matching the Z-Bar concept "顧客の声の波形" (waveform of voice). */
+@keyframes zdata-soundwave {
+  0% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3.8);
+  }
+}
+
+/* Vaporwave hue drift — the night sky bg subtly shifts hue. */
+@keyframes zdata-hue-drift {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(-12deg);
+  }
+}
+
+/* Horizontal scanline sweep — like sunset light passing over still water. */
+@keyframes zdata-scanline {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  20% {
+    opacity: 0.55;
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(900%);
+  }
+}
+
+/* Reflection ripple along the bottom — like neon reflecting on water. */
+@keyframes zdata-reflection {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleX(0.95);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scaleX(1.05);
+  }
+}
+
+/* Brand statement multi-color shimmer — pink → gold → blue → pink loop. */
+@keyframes zdata-brand-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+/* Pillar number pulse — each "01 / 02 / 03" breathes. */
+@keyframes zdata-pillar-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    text-shadow:
+      0 0 0px rgba(255, 138, 180, 0),
+      0 0 0px rgba(255, 216, 158, 0);
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 14px rgba(255, 138, 180, 0.7),
+      0 0 28px rgba(255, 216, 158, 0.4);
+  }
+}
+
+/* Helpers */
+.animate-zdata-soundwave {
+  animation: zdata-soundwave 4.5s ease-out infinite;
+}
+.animate-zdata-hue-drift {
+  animation: zdata-hue-drift 16s ease-in-out infinite;
+}
+.animate-zdata-reflection {
+  animation: zdata-reflection 8s ease-in-out infinite;
+}
+.animate-zdata-pillar-pulse {
+  animation: zdata-pillar-pulse 4s ease-in-out infinite;
+}
+.animate-zdata-brand-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ff8ab4 0%,
+    #ffd89e 25%,
+    #8fb8e8 50%,
+    #ff8ab4 75%,
+    #ffd89e 100%
+  );
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: zdata-brand-shimmer 14s linear infinite;
+}
+
+/* =====================================================
+ * Ambient sway / wobble — gentle ゆらゆら motion for all sections
+ * ===================================================== */
+
+/* Slow organic drift in a quasi-circle. Use on outer wrapper of particles. */
+@keyframes ambient-wobble-a {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(12px, -6px);
+  }
+  50% {
+    transform: translate(4px, -14px);
+  }
+  75% {
+    transform: translate(-10px, -4px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes ambient-wobble-b {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-10px, 8px);
+  }
+  66% {
+    transform: translate(8px, 6px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes ambient-wobble-c {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-6px, -8px);
+  }
+  40% {
+    transform: translate(8px, -10px);
+  }
+  60% {
+    transform: translate(10px, 4px);
+  }
+  80% {
+    transform: translate(-4px, 8px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Always-visible gentle breathing for sway particles. */
+@keyframes ambient-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* =====================================================
+ * Page-load "nova birth" entrance
+ * ===================================================== */
+
+/* Brief golden flash overlay (the moment of detonation). */
+@keyframes nova-page-flash {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Genova symbol bursts into existence, overshooting then settling. */
+@keyframes nova-symbol-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+    filter: blur(12px) brightness(2.5);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.4);
+    filter: blur(0) brightness(1.8);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.92);
+    filter: blur(0) brightness(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0) brightness(1);
+  }
+}
+
+/* Shockwave ring expands outward from the symbol. */
+@keyframes nova-shockwave {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  15% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(12);
+  }
+}
+
+/* Text rises out of a faint haze. */
+@keyframes nova-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+    filter: blur(8px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-nova-flash {
+  animation: nova-page-flash 1.2s ease-out both;
+}
+.animate-nova-symbol {
+  animation: nova-symbol-burst 1.3s cubic-bezier(0.2, 0.85, 0.3, 1.05) both;
+}
+.animate-nova-shockwave {
+  animation: nova-shockwave 1.6s cubic-bezier(0.2, 0.65, 0.3, 1) both;
+}
+.animate-nova-rise {
+  animation: nova-rise 1s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+/* "Shooting star" streaks that occasionally sweep across the hero. */
+@keyframes hero-streak {
+  0% {
+    opacity: 0;
+    transform: translate3d(-15%, 0, 0) scaleX(0.4);
+  }
+  10% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.6;
+    transform: translate3d(60%, 0, 0) scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(120%, 0, 0) scaleX(0.4);
+  }
+}
+
+/* Concentric radio-wave rings emanating from focal points. */
+@keyframes hero-ripple {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}
+
+/* Slow ambient "breathing" for the hero radial glow. */
+@keyframes hero-radial-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+}
+
+.hero-radial-pulse {
+  animation: hero-radial-pulse 10s ease-in-out infinite;
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Z-Data Z-Bar Symbol: 8 bars, β vertical gradient (top: Pink → mid: Niteflyte → bottom: Twilight Blue) -->
+  <defs>
+    <linearGradient id="zbar-grad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FF8AB4"/>
+      <stop offset="50%" stop-color="#1B3A7A"/>
+      <stop offset="100%" stop-color="#4A7BC7"/>
+    </linearGradient>
+  </defs>
+  <rect x="13" y="48" width="8" height="17" rx="1" fill="url(#zbar-grad)"/>
+  <rect x="24" y="38" width="8" height="27" rx="1" fill="url(#zbar-grad)"/>
+  <rect x="35" y="28" width="8" height="37" rx="1" fill="url(#zbar-grad)"/>
+  <rect x="46" y="18" width="8" height="47" rx="1" fill="url(#zbar-grad)"/>
+  <rect x="57" y="30" width="8" height="35" rx="1" fill="url(#zbar-grad)"/>
+  <rect x="68" y="42" width="8" height="23" rx="1" fill="url(#zbar-grad)"/>
+  <rect x="79" y="35" width="8" height="30" rx="1" fill="url(#zbar-grad)"/>
+  <rect x="90" y="50" width="7" height="15" rx="1" fill="url(#zbar-grad)"/>
+</svg>

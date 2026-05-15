@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" width="280" height="80">
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&amp;display=swap');
+      .logotype { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 44px; letter-spacing: -0.025em; fill: #000000; }
+      .inc { font-weight: 500; }
+    </style>
+  </defs>
+  <text x="0" y="56" class="logotype">Genova<tspan class="inc"> Inc.</tspan></text>
+</svg>

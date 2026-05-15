@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" width="200" height="70">
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Syne:ital,wght@1,600;1,700&amp;display=swap');
+      .logotype { font-family: 'Syne', sans-serif; font-weight: 700; font-style: italic; font-size: 52px; letter-spacing: 0.01em; fill: #000000; }
+    </style>
+  </defs>
+  <text x="0" y="54" class="logotype">Z-Data</text>
+</svg>
