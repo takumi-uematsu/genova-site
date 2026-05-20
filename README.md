@@ -1,9 +1,10 @@
 # Genova Inc. — Corporate Site
 
-Genova株式会社のコーポレートサイト。`z-data.io/company` で公開する1ページLP。Next.js 14 (App Router) + TypeScript + Tailwind CSS で構築。
+Genova株式会社のコーポレートサイト。`company.z-data.io` で公開する1ページLP。Next.js 14 (App Router) + TypeScript + Tailwind CSS で構築。
 
-> 本アプリは Next.js の `basePath: "/company"` で公開されます。
-> ローカル dev も本番も、エンドポイントはすべて `/company` プレフィックスが付きます。
+> 公開ドメイン構成
+> - `https://z-data.io` → Z-Data 製品サイト（別 Vercel project: `zdata-site`）
+> - `https://company.z-data.io` → Genova コーポレート（このプロジェクト）
 
 ## Quickstart
 
@@ -17,7 +18,7 @@ cp env.example .env.local
 
 # 3. dev server
 npm run dev
-# http://localhost:3000/company
+# http://localhost:3000
 ```
 
 ## Scripts
@@ -39,7 +40,8 @@ npm run dev
 | `CONTACT_FROM_EMAIL` | yes | Resend で認証済みのドメインのアドレス（推奨：`noreply@z-data.io`） |
 | `CONTACT_TO_EMAIL` | yes | カンマ区切りで複数指定可。社内通知の宛先 |
 | `SLACK_WEBHOOK_URL` | no | 設定すると Slack にも通知。空なら無効 |
-| `NEXT_PUBLIC_SITE_URL` | yes | オリジンのみ（例: `https://z-data.io`、末尾スラッシュなし）。OGP/sitemap/JSON-LD で使用 |
+| `NEXT_PUBLIC_SITE_URL` | yes | オリジンのみ（例: `https://company.z-data.io`、末尾スラッシュなし）。OGP/sitemap/JSON-LD で使用 |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | no | Google Analytics 4 の Measurement ID。空ならGA4 は読み込まれない |
 
 ## Tech
 
@@ -54,14 +56,14 @@ npm run dev
 
 | 用途 | URL |
 | --- | --- |
-| トップ（1ページLP） | `https://z-data.io/company` |
-| プライバシーポリシー | `https://z-data.io/company/privacy` |
-| OGP 画像 | `https://z-data.io/company/opengraph-image` |
-| favicon | `https://z-data.io/company/icon` |
-| apple-touch-icon | `https://z-data.io/company/apple-icon` |
-| sitemap | `https://z-data.io/company/sitemap.xml` |
-| robots | `https://z-data.io/company/robots.txt` |
-| Contact API | `https://z-data.io/company/api/contact` |
+| トップ（1ページLP） | `https://company.z-data.io/` |
+| プライバシーポリシー | `https://company.z-data.io/privacy` |
+| OGP 画像 | `https://company.z-data.io/opengraph-image` |
+| favicon | `https://company.z-data.io/icon` |
+| apple-touch-icon | `https://company.z-data.io/apple-icon` |
+| sitemap | `https://company.z-data.io/sitemap.xml` |
+| robots | `https://company.z-data.io/robots.txt` |
+| Contact API | `https://company.z-data.io/api/contact` |
 
 ## Directory
 

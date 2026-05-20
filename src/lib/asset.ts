@@ -1,12 +1,13 @@
 /**
  * Asset path helper.
  *
- * Next.js auto-prefixes basePath for routing (next/link) but NOT for
- * unoptimized static assets like SVGs used in <Image src="/...">.
- * Prefix them explicitly via `asset("/foo.svg")` so the URL becomes
- * `/company/foo.svg` and matches where Next.js actually serves the file.
+ * The site now lives at the root of company.z-data.io, so no basePath
+ * prefix is required. This helper is kept (as a no-op) for two reasons:
+ *   1. Easy to re-introduce a basePath in the future without touching every
+ *      <Image src> call site.
+ *   2. Centralized place for any future path rewriting logic.
  */
-export const BASE_PATH = "/company";
+export const BASE_PATH = "";
 
 export function asset(path: string): string {
   if (!path.startsWith("/")) return `${BASE_PATH}/${path}`;

@@ -34,9 +34,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://z-data.io";
-const BASE_PATH = "/company";
-const CANONICAL_URL = `${SITE_URL}${BASE_PATH}`;
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+  "https://company.z-data.io";
+const CANONICAL_URL = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -103,7 +103,7 @@ const orgJsonLd = {
   name: "Genova株式会社",
   alternateName: "Genova Inc.",
   url: CANONICAL_URL,
-  logo: `${CANONICAL_URL}/logos/genova/horizontal/genova_h_color.svg`,
+  logo: `${SITE_URL}/logos/genova/horizontal/genova_h_color.svg`,
   address: {
     "@type": "PostalAddress",
     streetAddress: "南青山3-5-2 南青山第一韮澤ビル3F",
