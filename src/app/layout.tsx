@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Noto_Sans_JP, Syne, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -112,6 +115,8 @@ const orgJsonLd = {
   foundingDate: "2026-05-01",
 };
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 export default function RootLayout({
   children,
 }: {
@@ -130,10 +135,36 @@ export default function RootLayout({
           メインコンテンツへスキップ
         </a>
         {children}
+
+        {/* Structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
+
+        {/* Vercel Web Analytics & Speed Insights — page views, visitors,
+            Core Web Vitals. Free on Hobby/Pro; no cookies. */}
+        <Analytics />
+        <SpeedInsights />
+
+        {/* Google Analytics 4 — only loads if env var is set, so the
+            site stays cookie-free until we explicitly opt in. */}
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', { anonymize_ip: true });
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
