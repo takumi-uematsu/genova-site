@@ -47,12 +47,15 @@ export default function Mission() {
           <Reveal delay={0.1}>
             <h2
               id="mission-heading"
-              className="mt-4 text-balance text-[28px] leading-[1.4] tracking-[-0.02em] font-bold sm:mt-6 sm:text-[36px] md:text-[44px] lg:text-[56px] lg:leading-[1.3] xl:text-mission"
-              style={{ wordBreak: "keep-all" }}
+              className="mt-4 text-[26px] leading-[1.4] tracking-[-0.02em] font-bold sm:mt-6 sm:text-[36px] md:text-[44px] lg:text-[56px] lg:leading-[1.3] xl:text-mission [word-break:keep-all]"
             >
-              <span className="block">価値あるデータを、ゼロから生み出す。</span>
+              <span className="block">
+                <span className="inline-block">価値あるデータを、</span>
+                <span className="inline-block">ゼロから生み出す。</span>
+              </span>
               <span className="block text-windowLight animate-mission-glow">
-                日本を、AI時代の勝者にする。
+                <span className="inline-block">日本を、</span>
+                <span className="inline-block">AI時代の勝者にする。</span>
               </span>
             </h2>
           </Reveal>
