@@ -172,19 +172,18 @@ export default function Products() {
 
         <Reveal delay={0.3}>
           <div className="mt-10 flex flex-col items-center gap-3 sm:mt-14">
-            <button
-              type="button"
-              disabled
-              aria-disabled="true"
-              className="inline-flex w-full max-w-[280px] items-center justify-center gap-2 rounded-sm border-[1.5px] border-white/30 px-8 py-4 text-[15px] font-medium text-white/50 cursor-not-allowed select-none sm:w-auto sm:text-[16px]"
+            <a
+              href="https://z-data.io"
+              className="group inline-flex w-full max-w-[280px] items-center justify-center gap-2 rounded-sm border-[1.5px] border-white/40 px-8 py-4 text-[15px] font-medium text-white transition-all duration-200 ease-soft hover:border-zdata-sunsetPink hover:text-zdata-sunsetPink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zdata-sunsetPink focus-visible:ring-offset-2 focus-visible:ring-offset-zdata-deepNight sm:w-auto sm:text-[16px]"
             >
               Z-Data について詳しく
-              <span aria-hidden>→</span>
-            </button>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-zdata-sunsetPink/15 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-zdata-sunsetPink ring-1 ring-zdata-sunsetPink/30">
-              <span className="h-1.5 w-1.5 rounded-full bg-zdata-sunsetPink animate-pulse" />
-              Coming Soon
-            </span>
+              <span
+                aria-hidden
+                className="transition-transform duration-200 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </a>
           </div>
         </Reveal>
       </Container>
