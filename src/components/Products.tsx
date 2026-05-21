@@ -108,12 +108,10 @@ export default function Products() {
           {/* Brand statement (v4 hero) — Syne italic, multi-color shimmer */}
           <Reveal delay={0.5}>
             <h3
-              className="mt-12 max-w-3xl text-balance font-syne italic text-[26px] leading-[1.3] tracking-[-0.01em] animate-zdata-brand-shimmer sm:mt-16 sm:text-[36px] lg:text-[52px]"
-              style={{ fontWeight: 700 }}
+              className="mt-12 max-w-3xl text-balance font-jp font-bold text-[26px] leading-[1.4] tracking-[-0.01em] animate-zdata-brand-shimmer sm:mt-16 sm:text-[36px] lg:text-[52px] [word-break:keep-all]"
             >
-              ビジネスの脈動は、
-              <br className="sm:hidden" />
-              顧客の声から始まる。
+              <span className="inline-block whitespace-nowrap">ビジネスの脈動は、</span>
+              <span className="inline-block whitespace-nowrap">顧客の声から始まる。</span>
             </h3>
           </Reveal>
 

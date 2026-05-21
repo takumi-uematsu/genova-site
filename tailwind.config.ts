@@ -65,7 +65,15 @@ const config: Config = {
           '"Hiragino Kaku Gothic ProN"',
           "sans-serif",
         ],
-        syne: ["var(--font-syne)", "serif"],
+        syne: [
+          "var(--font-syne)",
+          "var(--font-noto-jp)",
+          '"Hiragino Kaku Gothic ProN"',
+          '"Hiragino Sans"',
+          '"Yu Gothic UI"',
+          "Meiryo",
+          "sans-serif",
+        ],
         mono: ["var(--font-space-grotesk)", '"JetBrains Mono"', "monospace"],
       },
       fontSize: {
